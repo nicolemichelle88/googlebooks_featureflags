@@ -77,6 +77,16 @@ cd google-books-search-app
     Use the "Previous" and "Next" buttons to navigate through the pages of search results. Click on the page numbers to jump to a specific page.
 
 ### Additional Information
+1. Set up flags as following:
+<img width="1162" alt="LD_flags" src="https://github.com/nicolemichelle88/googlebooks_featureflags/assets/19213563/f2e8be41-c2d9-4a18-ad32-ffcd341289c4">
 
-- The `results-info` section displays the total number of results, the most common author, the earliest publication date, the latest publication date, and the server response time.
+2. Set up segments as following:
+<img width="1166" alt="LD_segments" src="https://github.com/nicolemichelle88/googlebooks_featureflags/assets/19213563/abca31a0-917c-4c89-a321-668f5409a177">
+
+3. Set up metrics:
+<img width="1477" alt="LD_metrics" src="https://github.com/nicolemichelle88/googlebooks_featureflags/assets/19213563/fe9e7b19-85ed-482e-b876-f2e53da1c0ca">
+
+
+
+
 
