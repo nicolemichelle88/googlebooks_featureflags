@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Books Search</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="books.png">
+    <link rel="shortcut icon" type="image/png" href="books.png">
+    <link rel="apple-touch-icon" href="books.png">
+    <!-- Include the LaunchDarkly JavaScript SDK -->
+    <script src="https://unpkg.com/launchdarkly-js-client-sdk@2/dist/ldclient.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>Google Books Search</h1>
+        <div class="search-container">
+            <label for="search-input" class="sr-only">Search for books</label>
+            <input type="text" id="search-input" placeholder="Search for books..." aria-label="Search for books">
+            <button id="search-button" aria-label="Search">Search</button>
+        </div>
+
+        <div id="results-info" aria-live="polite">
+            <p>Total Results: <span id="total-results"></span></p>
+            <p>Most Common Author: <span id="common-author"></span></p>
+            <p>Earliest Publication Date: <span id="earliest-date"></span></p>
+            <p>Latest Publication Date: <span id="latest-date"></span></p>
+            <p>Response Time: <span id="response-time"></span> seconds</p>
+        </div>
+
+        <ul id="results" aria-live="polite"></ul>
+
+        <div class="pagination">
+            <button id="first-page" aria-label="First page" style="display: none;">First</button>
+            <button id="prev-page" aria-label="Previous page" disabled>Previous</button>
+            <span id="page-numbers" aria-label="Page numbers"></span>
+            <button id="next-page" aria-label="Next page" disabled>Next</button>
+            <button id="last-page" aria-label="Last page" style="display: none;">Last</button>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
