@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const clientSideId = '66887848f36a691031574107';  // Replace with your actual client-side ID
 
-    // Toggle between user1 and user2 for demonstration by commenting/uncommenting the appropriate line
+    // Toggle between user1, user2, and user3 for demonstration by commenting/uncommenting the appropriate line
     const ldclient = LDClient.initialize(clientSideId, {
         key: 'user1' // Static user key for testing
         // key: 'user2' // Static user key for testing-- the last page button == false
