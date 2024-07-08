@@ -13,11 +13,11 @@ document.addEventListener('DOMContentLoaded', () => {
     let totalPages = 0;
     let allResults = {};
 
-    const clientSideId = '<your client ID here>';  // Replace with your actual client-side ID
+    const clientSideId = '<your-client-side-ID>';  // Replace with your actual client-side ID
 
     // Toggle between user1, user2, and user3 for demonstration by commenting/uncommenting the appropriate line
     const ldclient = LDClient.initialize(clientSideId, {
-        key: 'user1' // Static user key for testing
+        key: 'user3' // Static user key for testing
         // key: 'user2' // Static user key for testing-- the last page button == false
         // key: 'user3' // Static user key for testing-- in beta segment
     });
@@ -164,6 +164,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (response.status === 500 && isLastPage) {
                         console.log('Tracking fetch-page-error for last page');
                         sendSlackMessage(`500 error occurred on last page fetch: Page ${page}, Start Index ${startIndex}`);
+                        ldclient.track('fetch-page-error', {
+                            page: page,
+                            startIndex: startIndex,
+                            query: currentQuery,
+                            error: '500 Internal Server Error'
+                        });
                     }
                     throw new Error('Network response was not ok');
                 }
@@ -180,6 +186,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (isLastPage) {
                     console.log('Tracking fetch-page-error for last page');
                     sendSlackMessage(`500 error occurred on last page fetch: Page ${page}, Start Index ${startIndex}, Error: ${error.message}`);
+                    ldclient.track('fetch-page-error', {
+                        page: page,
+                        startIndex: startIndex,
+                        query: currentQuery,
+                        error: error.message
+                    });
                 }
             });
     }
