@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let totalPages = 0;
     let allResults = {};
 
-    const clientSideId = '66887848f36a691031574107';  // Replace with your actual client-side ID
+    const clientSideId = '<your client ID here>';  // Replace with your actual client-side ID
 
     // Toggle between user1, user2, and user3 for demonstration by commenting/uncommenting the appropriate line
     const ldclient = LDClient.initialize(clientSideId, {
