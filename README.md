@@ -81,10 +81,14 @@ cd google-books-search-app
 <img width="1162" alt="LD_flags" src="https://github.com/nicolemichelle88/googlebooks_featureflags/assets/19213563/f2e8be41-c2d9-4a18-ad32-ffcd341289c4">
 &nbsp;
 &nbsp;
+&nbsp;
+&nbsp;
 
 
 3. Set up segments as following:
 <img width="1166" alt="LD_segments" src="https://github.com/nicolemichelle88/googlebooks_featureflags/assets/19213563/abca31a0-917c-4c89-a321-668f5409a177">
+&nbsp;
+&nbsp;
 &nbsp;
 &nbsp;
 
