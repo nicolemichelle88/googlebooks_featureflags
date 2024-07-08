@@ -10,7 +10,7 @@ import os
 app = Flask(__name__, static_url_path='', static_folder='static')
 CORS(app)
 
-ldclient.set_config(Config("<add your client ID here>"))
+ldclient.set_config(Config("<add your SDK ID here>"))
 ld_client = ldclient.get()
 
 GOOGLE_BOOKS_API_URL = "https://www.googleapis.com/books/v1/volumes"
