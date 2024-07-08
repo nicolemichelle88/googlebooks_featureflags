@@ -75,7 +75,11 @@ cd google-books-search-app
 3. **Navigate Through Pages**:
 
     Use the "Previous" and "Next" buttons to navigate through the pages of search results. Click on the page numbers to jump to a specific page.
-
+<br>
+<br>
+<br>
+<br>
+<br>
 ### Additional Information
 1. Set up flags as following:
 <img width="1162" alt="LD_flags" src="https://github.com/nicolemichelle88/googlebooks_featureflags/assets/19213563/f2e8be41-c2d9-4a18-ad32-ffcd341289c4">
