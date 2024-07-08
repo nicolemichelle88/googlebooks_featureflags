@@ -14,7 +14,7 @@ ldclient.set_config(Config("<add your SDK ID here>"))
 ld_client = ldclient.get()
 
 GOOGLE_BOOKS_API_URL = "https://www.googleapis.com/books/v1/volumes"
-SLACK_WEBHOOK_URL = 'https://hooks.slack.com/services/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'
+    SLACK_WEBHOOK_URL = 'https://hooks.slack.com/services/<values from Slack>'
 
 def format_authors(authors):
     return ', '.join(authors) if authors else 'Unknown Author'
