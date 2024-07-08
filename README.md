@@ -82,12 +82,16 @@ cd google-books-search-app
 <br>
 <br>
 -------
+<br>
+<br>
 
 2. Set up segments as following:
 <img width="1166" alt="LD_segments" src="https://github.com/nicolemichelle88/googlebooks_featureflags/assets/19213563/abca31a0-917c-4c89-a321-668f5409a177">
 <br>
 <br>
 -------
+<br>
+<br>
 
 3. Set up metrics:
 <img width="1477" alt="LD_metrics" src="https://github.com/nicolemichelle88/googlebooks_featureflags/assets/19213563/fe9e7b19-85ed-482e-b876-f2e53da1c0ca">
