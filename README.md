@@ -45,7 +45,7 @@ cd google-books-search-app
 3. **Configure LaunchDarkly Keys in Your Code**:
 
     Replace placeholders in your `app.py` and `scripts.js` with your actual keys:
-    - In `scripts.js`, replace with your LaunchDarkly client-side ID on line 16:
+    - In `scripts.js`, replace with your LaunchDarkly client-side ID on `line 16`:
       ```javascript
       const clientSideId = '<your-client-side-ID>';  // Replace with your actual client-side ID
       ```
