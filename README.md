@@ -53,7 +53,15 @@ cd google-books-search-app
     - **LD_API_KEY**: Found in your [LaunchDarkly API Access Tokens](https://docs.launchdarkly.com/home/account-security/api-access-tokens).
     - **CLIENT_SIDE_ID**: Found in your [LaunchDarkly Client-side SDK Keys](https://docs.launchdarkly.com/sdk/client-side/javascript#configuring-your-project-and-environment).
 
-4. **Run the Flask App**:
+4. **Set Environment Variables**:
+
+    ```bash
+    export LD_SDK_KEY=your_sdk_key
+    export LD_API_KEY=your_ld_api_key
+    export SLACK_WEBHOOK_URL=https://hooks.slack.com/services/your/slack/webhook
+    ```
+
+5. **Run the Flask App**:
 
     ```bash
     python3 app.py
