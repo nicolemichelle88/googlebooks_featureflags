@@ -98,7 +98,7 @@ cd google-books-search-app
 
 ### Setting Up LaunchDarkly
 
-#### Flags
+#### 1. Flags
 
 **Create a Feature Flag**:
 
@@ -109,7 +109,7 @@ cd google-books-search-app
     
 ![LD_flags](https://github.com/nicolemichelle88/googlebooks_featureflags/assets/19213563/f2e8be41-c2d9-4a18-ad32-ffcd341289c4)
 
-#### Segments
+#### 2. Segments
 
  **Create a Segment**:
 
@@ -119,7 +119,7 @@ cd google-books-search-app
 
 ![LD_segments](https://github.com/nicolemichelle88/googlebooks_featureflags/assets/19213563/abca31a0-917c-4c89-a321-668f5409a177)
 
-#### Rules
+#### 3. Rules
 **Create Rules for Individual Targeting**
 - Navigate inside the Dashboard for the `last-button` Flag
 - Click `Add Rule` and select `Target Individuals`
@@ -134,7 +134,7 @@ cd google-books-search-app
 
 ![rulebasedtargeting](https://github.com/nicolemichelle88/googlebooks_featureflags/assets/19213563/be3739e8-a897-44fa-86a2-38f7805d8b79)
 
-#### Metrics
+#### 4. Metrics
 
 **Set Up Metrics**:
 
