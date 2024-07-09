@@ -96,9 +96,9 @@ cd google-books-search-app
 
     Use the "Previous" and "Next" buttons to navigate through the pages of search results. Click on the page numbers to jump to a specific page.
 
-### Setting Up LaunchDarkly
+## Setting Up LaunchDarkly
 
-#### 1. Flags
+### 1. Flags
 
 **Create a Feature Flag**:
 
@@ -109,7 +109,7 @@ cd google-books-search-app
     
 ![LD_flags](https://github.com/nicolemichelle88/googlebooks_featureflags/assets/19213563/f2e8be41-c2d9-4a18-ad32-ffcd341289c4)
 
-#### 2. Segments
+### 2. Segments
 
  **Create a Segment**:
 
@@ -119,7 +119,7 @@ cd google-books-search-app
 
 ![LD_segments](https://github.com/nicolemichelle88/googlebooks_featureflags/assets/19213563/abca31a0-917c-4c89-a321-668f5409a177)
 
-#### 3. Rules
+### 3. Rules
 **Create Rules for Individual Targeting**
 - Navigate inside the Dashboard for the `last-button` Flag
 - Click `Add Rule` and select `Target Individuals`
@@ -134,7 +134,7 @@ cd google-books-search-app
 
 ![rulebasedtargeting](https://github.com/nicolemichelle88/googlebooks_featureflags/assets/19213563/be3739e8-a897-44fa-86a2-38f7805d8b79)
 
-#### 4. Metrics
+### 4. Metrics
 
 **Set Up Metrics**:
 
@@ -144,43 +144,43 @@ cd google-books-search-app
     
 ![fetchpageerror](https://github.com/nicolemichelle88/googlebooks_featureflags/assets/19213563/cc6e465e-a2c4-42dc-bbc8-017c708a881b)
 
-### Setting Up Slack
+## Setting Up Slack
 
-#### Step 1: Create a Slack App
+### Step 1: Create a Slack App
 
-##### Go to the Slack API
+#### Go to the Slack API
 
 Navigate to the Slack API page at [https://api.slack.com/](https://api.slack.com/).
 
-##### Create a new Slack App
+#### Create a new Slack App
 
 1. Click on "Create New App."
 2. Select "From scratch."
 3. Provide a name for your app and choose the Slack workspace where you want to install the app.
 4. Click "Create App."
 
-#### Step 2: Add Incoming Webhooks
+### Step 2: Add Incoming Webhooks
 
-##### Navigate to the Features section
+#### Navigate to the Features section
 
 In the sidebar, under "Features," click on "Incoming Webhooks."
 
-##### Activate Incoming Webhooks
+#### Activate Incoming Webhooks
 
 Toggle the switch to "Activate Incoming Webhooks."
 
-##### Create a new webhook
+#### Create a new webhook
 
 1. Click on "Add New Webhook to Workspace."
 2. Select a channel where the webhook will post messages and click "Allow."
 
-##### Copy the Webhook URL
+#### Copy the Webhook URL
 
 1. After allowing, you will be redirected back to the app settings page.
 2. You will see your new webhook URL under "Webhook URLs for Your Workspace."
 3. Copy this URL. It will be used in your Flask application to send messages to Slack.
 
-### Additional Notes
+## Additional Notes
 
 - Ensure that you are using Python 3 by using `python3` and `pip3` commands to avoid any confusion with Python 2.x.
 - Make sure you install the required Python packages using the `requirements.txt` file to avoid missing dependencies.
