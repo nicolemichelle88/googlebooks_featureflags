@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Toggle between user1, user2, and user3 for demonstration by commenting/uncommenting the appropriate line
     const ldclient = LDClient.initialize(clientSideId, {
-        key: 'user3' // Static user key for testing
+        key: 'user1' // Static user key for testing
         // key: 'user2' // Static user key for testing-- the last page button == false
         // key: 'user3' // Static user key for testing-- in beta segment
     });
