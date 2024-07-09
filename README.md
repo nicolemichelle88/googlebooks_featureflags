@@ -25,7 +25,7 @@ Follow these instructions to get a copy of the project up and running on your lo
 ### Step 1: Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/googlebooks_featureflags.git
+git clone git@github.com:nicolemichelle88/googlebooks_featureflags.git
 cd googlebooks_featureflags
 ```
 
