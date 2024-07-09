@@ -78,11 +78,8 @@ cd google-books-search-app
 <br>
 <br>
 <br>
-<br>
-<br>
 
 ### Additional Information
-<br>
 <br>
 1. Set up flags as following:
 <img width="1162" alt="LD_flags" src="https://github.com/nicolemichelle88/googlebooks_featureflags/assets/19213563/f2e8be41-c2d9-4a18-ad32-ffcd341289c4">
