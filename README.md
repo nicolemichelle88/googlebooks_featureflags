@@ -46,13 +46,15 @@ cd google-books-search-app
 3. **Configure LaunchDarkly Keys in Your Code**:
 
     Replace placeholders in your `app.py` and `scripts.js` with your actual keys:
-    - In `app.py`, replace `"sdk-072f9530-de20-4ef9-8f9c-8c419bafca53"` with your LaunchDarkly SDK key.
-    - In `scripts.js`, replace `"66887848f36a691031574107"` with your LaunchDarkly client-side ID.
+    Replace placeholders in your `app.py` and `scripts.js` with your actual keys:
+    - In `scripts.js`, replace with your LaunchDarkly client-side ID on this line:
+```    const clientSideId = '<your-client-side-ID>';  // Replace with your actual client-side ID```
+
 
     **Note:** You can find your LaunchDarkly keys as follows:
-    - **LD_SDK_KEY**: Found in your [LaunchDarkly Project Settings](https://docs.launchdarkly.com/sdk/server-side/node-js#configuring-your-project-and-environment){:target="_blank"}
-    - **LD_API_KEY**: Found in your [LaunchDarkly API Access Tokens](https://docs.launchdarkly.com/home/account-security/api-access-tokens){:target="_blank"}
-    - **CLIENT_SIDE_ID**: Found in your [LaunchDarkly Client-side SDK Keys](https://docs.launchdarkly.com/sdk/client-side/javascript#configuring-your-project-and-environment){:target="_blank"}
+    - **LD_SDK_KEY**: Found in your [LaunchDarkly Project Settings](https://docs.launchdarkly.com/sdk/server-side/node-js#configuring-your-project-and-environment)
+    - **LD_API_KEY**: Found in your [LaunchDarkly API Access Tokens](https://docs.launchdarkly.com/home/account-security/api-access-tokens)
+    - **CLIENT_SIDE_ID**: Found in your [LaunchDarkly Client-side SDK Keys](https://docs.launchdarkly.com/sdk/client-side/javascript#configuring-your-project-and-environment)
 
 4. **Set Environment Variables**:
 
@@ -112,7 +114,7 @@ cd google-books-search-app
 1. **Create a Segment**:
 
     - Go to your LaunchDarkly dashboard.
-    - Create a new user segment and add the users who should be included.
+    - Create a new user segment and add the users who should be included. In this case,  I target anyone whose username ends in `3`.
     - The end result should look like this:
 
     ![LD_segments](https://github.com/nicolemichelle88/googlebooks_featureflags/assets/19213563/abca31a0-917c-4c89-a321-668f5409a177)
@@ -122,7 +124,7 @@ cd google-books-search-app
 1. **Set Up Metrics**:
 
     - Go to your LaunchDarkly dashboard.
-    - Create a new metric to track the desired events.
+    - Create a new metric to track the desired events. In this case, I'm tracking 
     - The end result should look like this:
 
     ![LD_metrics](https://github.com/nicolemichelle88/googlebooks_featureflags/assets/19213563/fe9e7b19-85ed-482e-b876-f2e53da1c0ca)
