@@ -64,7 +64,7 @@ cd googlebooks_featureflags
     **Note:** You can find your LaunchDarkly keys as follows:
     - **LD_SDK_KEY**: Found in your [LaunchDarkly Project Settings](https://docs.launchdarkly.com/sdk/server-side/node-js#configuring-your-project-and-environment)
     - **LD_API_KEY**: Found in your [LaunchDarkly API Access Tokens](https://docs.launchdarkly.com/home/account-security/api-access-tokens)
-    - **SLACK_WEBHOOK_URL**: See **Copy the Webhook URL** in the below section on **Setting Up Slack**
+    - **SLACK_WEBHOOK_URL**: See **Copy the Webhook URL** in the below section on [**Setting Up Slack**] (https://github.com/nicolemichelle88/googlebooks_featureflags/tree/main?tab=readme-ov-file#v-setting-up-slack) 
 
 5. **Run the Flask App**:
 
