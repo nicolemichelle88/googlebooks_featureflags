@@ -2,7 +2,7 @@
 
 This is a simple web application that allows users to search for books using the Google Books API. The application displays the search results with pagination and provides additional information such as the total number of results, the most common author, the earliest publication date, the latest publication date, and the server response time.
 
-We'll use the app and some of its features to explore the value of the LaunchDarkly platform.
+*We'll use the app and some of its features to explore the value of the LaunchDarkly platform.*
 
 ## I. Features
 
