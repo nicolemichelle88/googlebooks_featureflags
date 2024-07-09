@@ -13,8 +13,9 @@ This is a simple web application that allows users to search for books using the
 
 Before you begin, ensure you have the following installed on your machine:
 
-- [Python 3.x](https://www.python.org/downloads/)
-- [pip (Python package installer)](https://pip.pypa.io/en/stable/installation/)
+
+- [Python 3.x](https://www.python.org/downloads/){:target="_blank"}
+- [pip (Python package installer)](https://pip.pypa.io/en/stable/installation/){:target="_blank"}
 
 ## Getting Started
 
@@ -49,9 +50,9 @@ cd google-books-search-app
     - In `scripts.js`, replace `"66887848f36a691031574107"` with your LaunchDarkly client-side ID.
 
     **Note:** You can find your LaunchDarkly keys as follows:
-    - **LD_SDK_KEY**: Found in your [LaunchDarkly Project Settings](https://docs.launchdarkly.com/sdk/server-side/node-js#configuring-your-project-and-environment).
-    - **LD_API_KEY**: Found in your [LaunchDarkly API Access Tokens](https://docs.launchdarkly.com/home/account-security/api-access-tokens).
-    - **CLIENT_SIDE_ID**: Found in your [LaunchDarkly Client-side SDK Keys](https://docs.launchdarkly.com/sdk/client-side/javascript#configuring-your-project-and-environment).
+    - **LD_SDK_KEY**: Found in your [LaunchDarkly Project Settings](https://docs.launchdarkly.com/sdk/server-side/node-js#configuring-your-project-and-environment){:target="_blank"}
+    - **LD_API_KEY**: Found in your [LaunchDarkly API Access Tokens](https://docs.launchdarkly.com/home/account-security/api-access-tokens){:target="_blank"}
+    - **CLIENT_SIDE_ID**: Found in your [LaunchDarkly Client-side SDK Keys](https://docs.launchdarkly.com/sdk/client-side/javascript#configuring-your-project-and-environment){:target="_blank"}
 
 4. **Set Environment Variables**:
 
