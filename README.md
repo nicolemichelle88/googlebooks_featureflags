@@ -15,7 +15,7 @@ Before you begin, ensure you have the following installed on your machine:
 
 
 - [Python 3.x](https://www.python.org/downloads/) {:target="_blank"}
-- <a href="http://example.com/](https://www.python.org/downloads/)" target="_blank">Python 3.x</a>
+- <a href="http://example.com/](https://www.python.org/downloads/" target="_blank">Python 3.x</a>
 - [pip (Python package installer)](https://pip.pypa.io/en/stable/installation/)
 
 ## Getting Started
