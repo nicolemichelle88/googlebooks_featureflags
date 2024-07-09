@@ -14,8 +14,8 @@ This is a simple web application that allows users to search for books using the
 Before you begin, ensure you have the following installed on your machine:
 
 
-- [Python 3.x](https://www.python.org/downloads/:target="_blank")
-- [pip (Python package installer)](https://pip.pypa.io/en/stable/installation/){:target="_blank"}
+- [Python 3.x](https://www.python.org/downloads/) {:target="_blank"}
+- [pip (Python package installer)](https://pip.pypa.io/en/stable/installation/)
 
 ## Getting Started
 
