@@ -25,8 +25,8 @@ Follow these instructions to get a copy of the project up and running on your lo
 ### Step 1: Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/google-books-search-app.git
-cd google-books-search-app
+git clone https://github.com/your-username/googlebooks_featureflags.git
+cd googlebooks_featureflags
 ```
 
 ### Step 2: Set Up the Backend
