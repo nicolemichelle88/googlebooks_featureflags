@@ -22,14 +22,14 @@ Before you begin, ensure you have the following installed on your machine:
 
 Follow these instructions to get a copy of the project up and running on your local machine.
 
-### Clone the Repository
+### Step 1: Clone the Repository
 
 ```bash
 git clone https://github.com/your-username/google-books-search-app.git
 cd google-books-search-app
 ```
 
-### Set Up the Backend
+### Step 2: Set Up the Backend
 
 1. **Create a Virtual Environment** (optional but recommended):
 
@@ -74,7 +74,7 @@ cd google-books-search-app
 
     The backend server will start on `http://127.0.0.1:5000`.
 
-### Set Up the Frontend
+### Step 3: Set Up the Frontend
 
 1. **Serve the `index.html` via a Simple HTTP Server**:
 
@@ -84,7 +84,7 @@ cd google-books-search-app
 
     Then, navigate to `http://localhost:8000` in your web browser.
 
-### Search for Books
+### Step 4: Search for Books
 
 1. **Enter a Search Query**:
 
