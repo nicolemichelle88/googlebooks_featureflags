@@ -2,21 +2,23 @@
 
 This is a simple web application that allows users to search for books using the Google Books API. The application displays the search results with pagination and provides additional information such as the total number of results, the most common author, the earliest publication date, the latest publication date, and the server response time.
 
-## Features
+We'll use the app and some of its features to explore the value of the LaunchDarkly platform.
+
+## I. Features
 
 - Search for books using the Google Books API
 - Display search results with pagination
 - Show additional information about the search results
 - Responsive and accessible design
 
-## Prerequisites
+## II. Prerequisites
 
 Before you begin, ensure you have the following installed on your machine:
 
 - [Python 3.x](https://www.python.org/downloads/)
 - [pip (Python package installer)](https://pip.pypa.io/en/stable/installation/)
 
-## Getting Started
+## III. Getting Started
 
 Follow these instructions to get a copy of the project up and running on your local machine.
 
@@ -96,7 +98,7 @@ cd google-books-search-app
 
     Use the "Previous" and "Next" buttons to navigate through the pages of search results. Click on the page numbers to jump to a specific page.
 
-## Setting Up LaunchDarkly
+## IV. Setting Up LaunchDarkly
 
 ### 1. Flags
 
@@ -144,7 +146,7 @@ cd google-books-search-app
     
 ![fetchpageerror](https://github.com/nicolemichelle88/googlebooks_featureflags/assets/19213563/cc6e465e-a2c4-42dc-bbc8-017c708a881b)
 
-## Setting Up Slack
+## V. Setting Up Slack
 
 ### Step 1: Create a Slack App
 
@@ -180,7 +182,7 @@ Toggle the switch to "Activate Incoming Webhooks."
 2. You will see your new webhook URL under "Webhook URLs for Your Workspace."
 3. Copy this URL. It will be used in your Flask application to send messages to Slack.
 
-## Additional Notes
+## VI. Additional Notes
 
 - Ensure that you are using Python 3 by using `python3` and `pip3` commands to avoid any confusion with Python 2.x.
 - Make sure you install the required Python packages using the `requirements.txt` file to avoid missing dependencies.
