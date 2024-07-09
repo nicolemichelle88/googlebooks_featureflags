@@ -83,6 +83,8 @@ cd googlebooks_featureflags
     ```
 
     Then, navigate to `http://localhost:8000` in your web browser.
+   
+3. Alternatively, you can just open the `index.html` file in the browser of your choice!
 
 ### Step 4: Search for Books
 
