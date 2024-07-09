@@ -75,16 +75,8 @@ cd googlebooks_featureflags
     The backend server will start on `http://127.0.0.1:5000`.
 
 ### Step 3: Set Up the Frontend
-
-1. **Serve the `index.html` via a Simple HTTP Server**:
-
-    ```bash
-    python3 -m http.server
-    ```
-
-    Then, navigate to `http://localhost:8000` in your web browser.
    
-3. Alternatively, you can just open the `index.html` file in the browser of your choice!
+1. Open the `index.html` file in the browser of your choice!
 
 ### Step 4: Search for Books
 
