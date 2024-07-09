@@ -10,11 +10,14 @@ import os
 app = Flask(__name__, static_url_path='', static_folder='static')
 CORS(app)
 
-ldclient.set_config(Config("<add your SDK ID here>"))
+ldclient.set_config(Config(os.getenv('LD_SDK_KEY')))
+
 ld_client = ldclient.get()
 
 GOOGLE_BOOKS_API_URL = "https://www.googleapis.com/books/v1/volumes"
-SLACK_WEBHOOK_URL = 'https://hooks.slack.com/services/<values from Slack>'
+SLACK_WEBHOOK_URL = os.getenv('SLACK_WEBHOOK_URL')
+
+
 
 def format_authors(authors):
     return ', '.join(authors) if authors else 'Unknown Author'
@@ -140,6 +143,38 @@ def send_slack_message():
     except Exception as e:
         print(f"Error sending Slack message: {e}")
         return jsonify({'error': f'An error occurred while sending the Slack message: {str(e)}'}), 500
+
+# New route for triggering feature flag toggle
+@app.route('/toggle_last_button_flag', methods=['POST'])
+def toggle_last_button_flag():
+    try:
+        data = request.json
+        flag_value = data.get('value', False)
+
+        # Assuming you have the LaunchDarkly API client set up
+        url = f"https://app.launchdarkly.com/api/v2/flags/default/last-button"
+        headers = {
+            "Authorization": "api-d761bb3a-4bbf-437e-9cc8-a90609366e3b",
+            "Content-Type": "application/json"
+        }
+        payload = {
+            "patch": [
+                {
+                    "op": "replace",
+                    "path": "/environments/test/on",
+                    "value": flag_value
+                }
+            ]
+        }
+
+        response = requests.patch(url, headers=headers, json=payload)
+        if response.status_code != 200:
+            return jsonify({'error': 'Failed to toggle feature flag'}), 500
+
+        return jsonify({'status': 'Feature flag toggled successfully'}), 200
+    except Exception as e:
+        print(f"Error toggling feature flag: {e}")
+        return jsonify({'error': f'An error occurred while toggling the feature flag: {str(e)}'}), 500
 
 if __name__ == '__main__':
     app.run(debug=True)
