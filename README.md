@@ -100,47 +100,47 @@ cd google-books-search-app
 
 #### Flags
 
-    **Create a Feature Flag**:
+**Create a Feature Flag**:
 
-    - Go to your LaunchDarkly dashboard.
-    - Create a two new feature flags with a `boolean` flag type: `first-button` and `last-button`.
-    - Name the variations `True` and `False`.
-    - The end result should look like this:
+- Go to your LaunchDarkly dashboard.
+- Create a two new feature flags with a `boolean` flag type: `first-button` and `last-button`.
+- Name the variations `True` and `False`.
+- The end result should look like this:
     
-    ![LD_flags](https://github.com/nicolemichelle88/googlebooks_featureflags/assets/19213563/f2e8be41-c2d9-4a18-ad32-ffcd341289c4)
+![LD_flags](https://github.com/nicolemichelle88/googlebooks_featureflags/assets/19213563/f2e8be41-c2d9-4a18-ad32-ffcd341289c4)
 
 #### Segments
 
-     **Create a Segment**:
+ **Create a Segment**:
 
-    - Go to your LaunchDarkly dashboard.
-    - Create a new user segment and add the users who should be included. In this case, target anyone whose username ends in `3`.
-    - The end result should look like this:
-    
-    ![LD_segments](https://github.com/nicolemichelle88/googlebooks_featureflags/assets/19213563/abca31a0-917c-4c89-a321-668f5409a177)
+- Go to your LaunchDarkly dashboard.
+- Create a new user segment and add the users who should be included. In this case, target anyone whose username ends in `3`.
+- The end result should look like this:
+
+![LD_segments](https://github.com/nicolemichelle88/googlebooks_featureflags/assets/19213563/abca31a0-917c-4c89-a321-668f5409a177)
 
 #### Rules
-    **Create Rules for Individual Targeting**
-    - Navigate inside the Dashboard for the `last-button` Flag
-    - Click `Add Rule` and select `Target Individuals`
-    - Set the rule to serve `true` to `user1` and `false` to `user2`
-    ![individualtargeting](https://github.com/nicolemichelle88/googlebooks_featureflags/assets/19213563/f40a806a-413d-4141-809a-f025bedaf362)
+**Create Rules for Individual Targeting**
+- Navigate inside the Dashboard for the `last-button` Flag
+- Click `Add Rule` and select `Target Individuals`
+- Set the rule to serve `true` to `user1` and `false` to `user2`
+![individualtargeting](https://github.com/nicolemichelle88/googlebooks_featureflags/assets/19213563/f40a806a-413d-4141-809a-f025bedaf362)
 
-    **Create Rules for Rule-Based Targeting**
-    -In the same Dashboard for the `last-button` Flag, click `Add Rule` again, but this time choose `Target Segments`
-    - Set the rule "If not in `beta` group, flag=`false`" by choosing the `is not in` operator and the `beta` segment you previously created. Serve rollout as `false`.
-    - The end results should look like this:
-    ![notinbetafalse](https://github.com/nicolemichelle88/googlebooks_featureflags/assets/19213563/942e0091-6c9e-4112-8ea5-d3f8cf23a53c)
+**Create Rules for Rule-Based Targeting**
+-In the same Dashboard for the `last-button` Flag, click `Add Rule` again, but this time choose `Target Segments`
+- Set the rule "If not in `beta` group, flag=`false`" by choosing the `is not in` operator and the `beta` segment you previously created. Serve rollout as `false`.
+- The end results should look like this:
+![notinbetafalse](https://github.com/nicolemichelle88/googlebooks_featureflags/assets/19213563/942e0091-6c9e-4112-8ea5-d3f8cf23a53c)
 
-    ![rulebasedtargeting](https://github.com/nicolemichelle88/googlebooks_featureflags/assets/19213563/be3739e8-a897-44fa-86a2-38f7805d8b79)
+![rulebasedtargeting](https://github.com/nicolemichelle88/googlebooks_featureflags/assets/19213563/be3739e8-a897-44fa-86a2-38f7805d8b79)
 
 #### Metrics
 
-    **Set Up Metrics**:
+**Set Up Metrics**:
 
-    - Go to your LaunchDarkly dashboard.
-    - Create a new metric to track the desired events. In this example, we're seeting up the metric `fetch-page-error` as in the screenshot below. Ensure you've got `fetch-page-error` as the `Event Key` and `Lower than Baseline` as the `Success Criteria`.
-    - The end result should look like this before you click `Create Metric`:
+- Go to your LaunchDarkly dashboard.
+- Create a new metric to track the desired events. In this example, we're seeting up the metric `fetch-page-error` as in the screenshot below. Ensure you've got `fetch-page-error` as the `Event Key` and `Lower than Baseline` as the `Success Criteria`.
+- The end result should look like this before you click `Create Metric`:
     
 ![fetchpageerror](https://github.com/nicolemichelle88/googlebooks_featureflags/assets/19213563/cc6e465e-a2c4-42dc-bbc8-017c708a881b)
 
