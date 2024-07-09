@@ -13,7 +13,6 @@ This is a simple web application that allows users to search for books using the
 
 Before you begin, ensure you have the following installed on your machine:
 
-
 - [Python 3.x](https://www.python.org/downloads/)
 - [pip (Python package installer)](https://pip.pypa.io/en/stable/installation/)
 
@@ -46,16 +45,10 @@ cd google-books-search-app
 3. **Configure LaunchDarkly Keys in Your Code**:
 
     Replace placeholders in your `app.py` and `scripts.js` with your actual keys:
-    Replace placeholders in your `app.py` and `scripts.js` with your actual keys:
     - In `scripts.js`, replace with your LaunchDarkly client-side ID on line 16:
-       ```
-        const clientSideId = '<your-client-side-ID>';  // Replace with your actual client-side ID
-        ```
-
-
-    **Note:** You can find your LaunchDarkly keys as follows:
-    - **LD_SDK_KEY**: Found in your [LaunchDarkly Project Settings](https://docs.launchdarkly.com/sdk/server-side/node-js#configuring-your-project-and-environment)
-    - **LD_API_KEY**: Found in your [LaunchDarkly API Access Tokens](https://docs.launchdarkly.com/home/account-security/api-access-tokens)
+      ```javascript
+      const clientSideId = '<your-client-side-ID>';  // Replace with your actual client-side ID
+      ```
     - **CLIENT_SIDE_ID**: Found in your [LaunchDarkly Client-side SDK Keys](https://docs.launchdarkly.com/sdk/client-side/javascript#configuring-your-project-and-environment)
 
 4. **Set Environment Variables**:
@@ -65,6 +58,11 @@ cd google-books-search-app
     export LD_API_KEY=your_ld_api_key
     export SLACK_WEBHOOK_URL=https://hooks.slack.com/services/your/slack/webhook
     ```
+
+    **Note:** You can find your LaunchDarkly keys as follows:
+    - **LD_SDK_KEY**: Found in your [LaunchDarkly Project Settings](https://docs.launchdarkly.com/sdk/server-side/node-js#configuring-your-project-and-environment)
+    - **LD_API_KEY**: Found in your [LaunchDarkly API Access Tokens](https://docs.launchdarkly.com/home/account-security/api-access-tokens)
+    - **SLACK_WEBHOOK_URL**: See *Copy the Webhook URL* in the below section on *Setting Up Slack*
 
 5. **Run the Flask App**:
 
@@ -108,7 +106,7 @@ cd google-books-search-app
     - Create a new feature flag with a boolean flag type.
     - Name the variations `True` and `False`.
     - The end result should look like this:
-
+    
     ![LD_flags](https://github.com/nicolemichelle88/googlebooks_featureflags/assets/19213563/f2e8be41-c2d9-4a18-ad32-ffcd341289c4)
 
 #### Segments
@@ -116,9 +114,9 @@ cd google-books-search-app
 1. **Create a Segment**:
 
     - Go to your LaunchDarkly dashboard.
-    - Create a new user segment and add the users who should be included. In this case,  I target anyone whose username ends in `3`.
+    - Create a new user segment and add the users who should be included. In this case, target anyone whose username ends in `3`.
     - The end result should look like this:
-
+    
     ![LD_segments](https://github.com/nicolemichelle88/googlebooks_featureflags/assets/19213563/abca31a0-917c-4c89-a321-668f5409a177)
 
 #### Metrics
@@ -126,10 +124,46 @@ cd google-books-search-app
 1. **Set Up Metrics**:
 
     - Go to your LaunchDarkly dashboard.
-    - Create a new metric to track the desired events. In this case, I'm tracking 
+    - Create a new metric to track the desired events.
     - The end result should look like this:
-
+    
     ![LD_metrics](https://github.com/nicolemichelle88/googlebooks_featureflags/assets/19213563/fe9e7b19-85ed-482e-b876-f2e53da1c0ca)
+
+### Setting Up Slack
+
+#### Step 1: Create a Slack App
+
+##### Go to the Slack API
+
+Navigate to the Slack API page at [https://api.slack.com/](https://api.slack.com/).
+
+##### Create a new Slack App
+
+1. Click on "Create New App."
+2. Select "From scratch."
+3. Provide a name for your app and choose the Slack workspace where you want to install the app.
+4. Click "Create App."
+
+#### Step 2: Add Incoming Webhooks
+
+##### Navigate to the Features section
+
+In the sidebar, under "Features," click on "Incoming Webhooks."
+
+##### Activate Incoming Webhooks
+
+Toggle the switch to "Activate Incoming Webhooks."
+
+##### Create a new webhook
+
+1. Click on "Add New Webhook to Workspace."
+2. Select a channel where the webhook will post messages and click "Allow."
+
+##### Copy the Webhook URL
+
+1. After allowing, you will be redirected back to the app settings page.
+2. You will see your new webhook URL under "Webhook URLs for Your Workspace."
+3. Copy this URL. It will be used in your Flask application to send messages to Slack.
 
 ### Additional Notes
 
@@ -140,4 +174,4 @@ cd google-books-search-app
 pip3 install -r requirements.txt
 ```
 
-By following these steps, you should be able to set up and run the Google Books Search App with feature flags using LaunchDarkly. If you encounter any issues or have any questions, feel free to reach out for support.
+By following these steps, you should be able to set up and run the Google Books Search App with feature flags using LaunchDarkly. If you encounter any issues or have any questions, feel free to reach out to me for support!
