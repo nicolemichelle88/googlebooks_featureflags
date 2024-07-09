@@ -13,8 +13,8 @@ This is a simple web application that allows users to search for books using the
 
 Before you begin, ensure you have the following installed on your machine:
 
-- Python 3.x
-- pip (Python package installer)
+- [Python 3.x](https://www.python.org/downloads/)
+- [pip (Python package installer)](https://pip.pypa.io/en/stable/installation/)
 
 ## Getting Started
 
@@ -32,32 +32,41 @@ cd google-books-search-app
 1. **Create a Virtual Environment** (optional but recommended):
 
     ```bash
-    python -m venv venv
+    python3 -m venv venv
     source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
     ```
 
-2. **Install Flask and Requests**:
+2. **Install the Required Packages**:
 
     ```bash
-    pip install Flask requests flask-cors
+    pip3 install -r requirements.txt
     ```
 
-3. **Run the Flask App**:
+3. **Configure LaunchDarkly Keys in Your Code**:
+
+    Replace placeholders in your `app.py` and `scripts.js` with your actual keys:
+    - In `app.py`, replace `"sdk-072f9530-de20-4ef9-8f9c-8c419bafca53"` with your LaunchDarkly SDK key.
+    - In `scripts.js`, replace `"66887848f36a691031574107"` with your LaunchDarkly client-side ID.
+
+    **Note:** You can find your LaunchDarkly keys as follows:
+    - **LD_SDK_KEY**: Found in your [LaunchDarkly Project Settings](https://docs.launchdarkly.com/sdk/server-side/node-js#configuring-your-project-and-environment).
+    - **LD_API_KEY**: Found in your [LaunchDarkly API Access Tokens](https://docs.launchdarkly.com/home/account-security/api-access-tokens).
+    - **CLIENT_SIDE_ID**: Found in your [LaunchDarkly Client-side SDK Keys](https://docs.launchdarkly.com/sdk/client-side/javascript#configuring-your-project-and-environment).
+
+4. **Run the Flask App**:
 
     ```bash
-    python app.py
+    python3 app.py
     ```
 
     The backend server will start on `http://127.0.0.1:5000`.
 
 ### Set Up the Frontend
 
-1. **Open `index.html`**:
-
-    Open the `index.html` file in your preferred web browser. You can also use a simple HTTP server to serve the file:
+1. **Serve the `index.html` via a Simple HTTP Server**:
 
     ```bash
-    python -m http.server
+    python3 -m http.server
     ```
 
     Then, navigate to `http://localhost:8000` in your web browser.
@@ -75,32 +84,47 @@ cd google-books-search-app
 3. **Navigate Through Pages**:
 
     Use the "Previous" and "Next" buttons to navigate through the pages of search results. Click on the page numbers to jump to a specific page.
-<br>
-<br>
-<br>
 
-### Additional Information
-<br>
-1. Set up flags as following:
-<img width="1162" alt="LD_flags" src="https://github.com/nicolemichelle88/googlebooks_featureflags/assets/19213563/f2e8be41-c2d9-4a18-ad32-ffcd341289c4">
-<br>
-<br>
-<br>
-<br>
-<br>
+### Setting Up LaunchDarkly
 
-2. Set up segments as following:
-<img width="1166" alt="LD_segments" src="https://github.com/nicolemichelle88/googlebooks_featureflags/assets/19213563/abca31a0-917c-4c89-a321-668f5409a177">
-<br>
-<br>
-<br>
-<br>
-<br>
+#### Flags
 
-3. Set up metrics:
-<img width="1477" alt="LD_metrics" src="https://github.com/nicolemichelle88/googlebooks_featureflags/assets/19213563/fe9e7b19-85ed-482e-b876-f2e53da1c0ca">
+1. **Create a Feature Flag**:
 
+    - Go to your LaunchDarkly dashboard.
+    - Create a new feature flag with a boolean flag type.
+    - Name the variations `True` and `False`.
+    - The end result should look like this:
 
+    ![LD_flags](https://github.com/nicolemichelle88/googlebooks_featureflags/assets/19213563/f2e8be41-c2d9-4a18-ad32-ffcd341289c4)
 
+#### Segments
 
+1. **Create a Segment**:
 
+    - Go to your LaunchDarkly dashboard.
+    - Create a new user segment and add the users who should be included.
+    - The end result should look like this:
+
+    ![LD_segments](https://github.com/nicolemichelle88/googlebooks_featureflags/assets/19213563/abca31a0-917c-4c89-a321-668f5409a177)
+
+#### Metrics
+
+1. **Set Up Metrics**:
+
+    - Go to your LaunchDarkly dashboard.
+    - Create a new metric to track the desired events.
+    - The end result should look like this:
+
+    ![LD_metrics](https://github.com/nicolemichelle88/googlebooks_featureflags/assets/19213563/fe9e7b19-85ed-482e-b876-f2e53da1c0ca)
+
+### Additional Notes
+
+- Ensure that you are using Python 3 by using `python3` and `pip3` commands to avoid any confusion with Python 2.x.
+- Make sure you install the required Python packages using the `requirements.txt` file to avoid missing dependencies.
+
+```bash
+pip3 install -r requirements.txt
+```
+
+By following these steps, you should be able to set up and run the Google Books Search App with feature flags using LaunchDarkly. If you encounter any issues or have any questions, feel free to reach out for support.
