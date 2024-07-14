@@ -9,28 +9,35 @@ document.addEventListener('DOMContentLoaded', () => {
     const lastPageButton = document.getElementById('last-page');
     const resultsContainer = document.getElementById('results');
     const pageNumbersContainer = document.getElementById('page-numbers');
+    const usernameDisplay = document.getElementById('user-key'); // Display for the user key
     let currentPage = 1; // Variable to keep track of the current page
     let currentQuery = ''; // Variable to store the current search query
     let totalResults = 0; // Variable to store the total number of search results
     let totalPages = 0; // Variable to store the total number of pages
     let allResults = {}; // Object to cache the search results for each page
 
-    // Replace with your actual client-side ID for LaunchDarkly
-    const clientSideId = '<your-client-side-ID>';
+    const clientSideId = '66887848f36a691031574107';  // Replace with your actual client-side ID
 
-    // Initialize the LaunchDarkly client with a static user key for testing
+    // Define user information for LaunchDarkly
+    const userKey = 'user1'; // flag: true
+    // const userKey = 'user2'; // flag: false
+    // const userKey = 'user3'; // beta
+    // const userKey = 'user31'; // should be false
+
+    // Display the username
+    usernameDisplay.textContent = userKey;
+
+    // Initialize LaunchDarkly client
     const ldclient = LDClient.initialize(clientSideId, {
-        key: 'user1' // Static user key for testing
-        // key: 'user2' // Static user key for testing-- the last page button == false
-        // key: 'user3' // Static user key for testing-- in beta segment
+        key: userKey
     });
 
     // Event handler for when the LaunchDarkly client is ready
     ldclient.on('ready', () => {
         console.log('LaunchDarkly client ready');
-        handleFlagUpdates(ldclient); // Update UI based on feature flags
+        handleFlagUpdates(ldclient);
 
-        // Listen for changes to any feature flags and update UI accordingly
+        // Listen for changes to any flags and update UI accordingly
         ldclient.on('change', (changes) => {
             console.log('LaunchDarkly Flags Changed:', changes);
             handleFlagUpdates(ldclient);
@@ -184,4 +191,110 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(data => {
                 console.log(`Data received for page ${page}:`, data);
                 allResults[page] = data.books; // Cache the results for the page
-                displayResults();
+                displayResults(); // Display the results
+                updatePagination(); // Update the pagination controls
+            })
+            .catch(error => {
+                console.error('Error fetching page results:', error); // Log any errors
+                if (isLastPage) { // Special handling for errors on the last page
+                    console.log('Tracking fetch-page-error for last page');
+                    sendSlackMessage(`500 error occurred on last page fetch: Page ${page}, Start Index ${startIndex}, Error: ${error.message}`); // Send a Slack message for the error
+                    ldclient.track('fetch-page-error', { // Track the error in LaunchDarkly
+                        page: page,
+                        startIndex: startIndex,
+                        query: currentQuery,
+                        error: error.message
+                    });
+                }
+            });
+    }
+
+    // Function to send a message to Slack via the server-side proxy
+    function sendSlackMessage(message) {
+        fetch('http://127.0.0.1:5000/send_slack_message', { // Make a fetch request to the Slack message endpoint
+            method: 'POST', // Use the POST method
+            headers: {
+                'Content-Type': 'application/json', // Set the content type to JSON
+            },
+            body: JSON.stringify({
+                text: message // Include the message text in the request body
+            }),
+        })
+        .then(response => {
+            if (!response.ok) { // Check if the response is not OK
+                throw new Error('Failed to send Slack message'); // Throw an error
+            }
+            console.log('Slack message sent successfully'); // Log success
+        })
+        .catch(error => {
+            console.error('Error sending Slack message:', error); // Log any errors
+        });
+    }
+
+    // Function to display search results
+    function displayResults() {
+        console.log(`Displaying results for page: ${currentPage}`);
+        resultsContainer.innerHTML = ''; // Clear the current results
+
+        const books = allResults[currentPage]; // Get the results for the current page
+        for (let book of books) { // Loop through each book in the results
+            const li = document.createElement('li'); // Create a new list item
+            li.textContent = `${book.authors} - ${book.title}`; // Set the text content of the list item
+
+            const description = document.createElement('div'); // Create a new div for the description
+            description.className = 'description'; // Set the class of the description div
+            description.textContent = book.description ? book.description : 'No description available.'; // Set the text content of the description
+            description.style.display = 'none'; // Hide the description by default
+
+            li.appendChild(description); // Add the description div to the list item
+            li.addEventListener('click', () => { // Add a click event listener to toggle the description visibility
+                description.style.display = description.style.display === 'none' ? 'block' : 'none';
+            });
+
+            resultsContainer.appendChild(li); // Add the list item to the results container
+        }
+    }
+
+    // Function to update pagination controls
+    function updatePagination() {
+        console.log('Updating pagination:', { currentPage, totalPages });
+        prevPageButton.disabled = currentPage === 1; // Disable the previous page button if on the first page
+        nextPageButton.disabled = currentPage === totalPages; // Disable the next page button if on the last page
+
+        pageNumbersContainer.innerHTML = ''; // Clear the current page numbers
+        const pageRange = getPageRange(currentPage, totalPages, 7); // Get the range of page numbers to display
+
+        console.log('Page range:', pageRange);
+
+        pageRange.forEach(page => { // Loop through each page number in the range
+            const span = document.createElement('span'); // Create a new span for the page number
+            span.textContent = page; // Set the text content of the span
+            if (page === currentPage) { // Highlight the current page number
+                span.classList.add('active');
+            }
+            pageNumbersContainer.appendChild(span); // Add the span to the page numbers container
+        });
+    }
+
+    // Function to get the range of pages to display in the pagination
+    function getPageRange(currentPage, totalPages, maxPages) {
+        const half = Math.floor(maxPages / 2); // Calculate half of the maximum pages to display
+        let start = Math.max(1, currentPage - half); // Calculate the start of the page range
+        let end = Math.min(totalPages, currentPage + half); // Calculate the end of the page range
+
+        if (end - start < maxPages - 1) { // Adjust the start and end if the range is smaller than the maximum pages
+            if (start === 1) {
+                end = Math.min(totalPages, start + maxPages - 1);
+            } else if (end === totalPages) {
+                start = Math.max(1, end - maxPages + 1);
+            }
+        }
+
+        const pages = [];
+        for (let i = start; i <= end; i++) { // Add each page number in the range to the list
+            pages.push(i);
+        }
+
+        return pages; // Return the list of page numbers
+    }
+});
