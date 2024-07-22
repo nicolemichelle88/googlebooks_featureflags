@@ -103,7 +103,7 @@ cd googlebooks_featureflags
 - Name the variations `True` and `False`.
 - The end result should look like this:
     
-<img width="1014" alt="image" src="https://github.com/user-attachments/assets/64d8420f-5aea-4a1a-8934-eee28574eff8">
+<img width="1509" alt="image" src="https://github.com/user-attachments/assets/0cfa7b35-e1a9-4da2-a78f-df5207afb593">
 
 ### 2. Segments
 
