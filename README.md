@@ -110,10 +110,11 @@ cd googlebooks_featureflags
  **Create a Segment**:
 
 - Go to your LaunchDarkly dashboard.
-- Create a new user segment and add the users who should be included. In this case, target anyone whose username ends in `3`.
+- Create a new user segment and add the users who should be included. In this case, target anyone whose username contains `beta`.
 - The end result should look like this:
 
-![LD_segments](https://github.com/nicolemichelle88/googlebooks_featureflags/assets/19213563/abca31a0-917c-4c89-a321-668f5409a177)
+<img width="1172" alt="image" src="https://github.com/user-attachments/assets/5558c302-66d1-4023-a37f-2361a23f3813">
+
 
 ### 3. Rules
 **Create Rules for Individual Targeting**
