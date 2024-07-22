@@ -124,10 +124,11 @@ cd googlebooks_featureflags
 
 **Create Rules for Rule-Based Targeting**
 -In the same Dashboard for the `last-button` Flag, click `Add Rule` again, but this time choose `Target Segments`:
+
 <img width="1176" alt="targetsegments" src="https://github.com/user-attachments/assets/757a1e3c-cc22-4ccc-a2c4-ca036d0c20be">
 
 - Set the rule "If not in `beta` group, flag=`false`" by choosing the `is not in` operator and the `beta` segment you previously created. Serve rollout as `false`.
-- The end results should look like this:
+- The end result should look like this:
   
 ![notinbetafalse](https://github.com/nicolemichelle88/googlebooks_featureflags/assets/19213563/942e0091-6c9e-4112-8ea5-d3f8cf23a53c)
 
