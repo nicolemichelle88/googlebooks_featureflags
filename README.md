@@ -128,6 +128,7 @@ cd googlebooks_featureflags
 
 - Set the rule "If not in `beta` group, flag=`false`" by choosing the `is not in` operator and the `beta` segment you previously created. Serve rollout as `false`.
 - The end results should look like this:
+  
 ![notinbetafalse](https://github.com/nicolemichelle88/googlebooks_featureflags/assets/19213563/942e0091-6c9e-4112-8ea5-d3f8cf23a53c)
 
 ![rulebasedtargeting](https://github.com/nicolemichelle88/googlebooks_featureflags/assets/19213563/be3739e8-a897-44fa-86a2-38f7805d8b79)
