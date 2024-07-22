@@ -121,7 +121,7 @@ cd googlebooks_featureflags
 - Navigate inside the Dashboard for the `last-button` Flag
 - Click `Add Rule` and select `Target Individuals`
 - Set the rule to serve `true` to `user1` and `false` to `user2`
-![individualtargeting](https://github.com/nicolemichelle88/googlebooks_featureflags/assets/19213563/f40a806a-413d-4141-809a-f025bedaf362)
+<img width="854" alt="image" src="https://github.com/user-attachments/assets/56de7177-b00c-4023-b05e-7199d337024f">
 
 **Create Rules for Rule-Based Targeting**
 -In the same Dashboard for the `last-button` Flag, click `Add Rule` again, but this time choose `Target Segments`:
